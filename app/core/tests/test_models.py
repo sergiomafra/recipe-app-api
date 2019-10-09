@@ -30,3 +30,15 @@ class ModelTests(TestCase):
 
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user(None, 'TestPass123')
+
+    def test_create_new_superuser(self):
+        ''' Test creating a new superuser '''
+
+        user = get_user_model().objects.create_superuser(
+            'test@mafra.io',
+            'TestPass123'
+        )
+
+        # is_superuser is part of PermissionsMixin
+        self.assertTrue(user.is_superuser)
+        self.assertTrue(user.is_staff)
