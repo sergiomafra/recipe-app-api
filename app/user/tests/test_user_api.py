@@ -125,7 +125,7 @@ class PublicUserAPITests(TestCase):
 
 class PrivateUserAPITests(TestCase):
     ''' Test API requests that require authentication '''
-    
+
     def setUp(self):
         self.user = create_user(
             email='test@mafra.io',
